@@ -1,4 +1,4 @@
-package com.example.stem211.alberto;
+package com.exemple.stem211.alberto;
 
 public class Hello {
 		public static void main(String[] args) {
