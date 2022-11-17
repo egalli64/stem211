@@ -11,7 +11,7 @@ public class Card {
 	public Card(int nCards[], int[] numbers) {
 		this.nCards = new int[15];
 		this.numbers = new int[90];
-		Card.count += 1;
+		this.count += 1;
 	}
 
 //	Voglio creare k cartelle
@@ -27,18 +27,17 @@ public class Card {
 		}
 	}
 
-	public int[] totcard() {
-		int count = 0;
-		StringBuilder nCards = new StringBuilder();
-		for (int i = 0; i < numbers.length; i++) {
-			for (int j = 0; j < nCards.length; j++) {
-				int n = nCards.length * count;
-				nCards[i] = numbers[n];
-				n++;
-			}
-			count++;
-		}
-		
+//	public int[] totcard() {
+//		int count = 0;
+//		for (int i = 0; i < numbers.length; i++) {
+//			for (int j = 0; j < nCards.length; j++) {
+//				int n = nCards.length * count;
+//				nCards[i] = numbers[n];
+//				n++;
+//			}
+//			count++;
+//		}
+
 //		int[]card1 = new int[15];
 //		int[]card2 = new int[15];
 //		int[]card3 = new int[15];
@@ -57,4 +56,4 @@ public class Card {
 //		}
 	}
 
-}
+
