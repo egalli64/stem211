@@ -26,6 +26,10 @@ public class Giocatore {
 	public int getNumeroCartelle() {
 		return numeroCartelle;
 	}
+	
+	public void setMyCartella(int[] newCartella) {
+		this.myCartella=newCartella;
+	}
 
 	public int[] getMyCartella() {
 		return myCartella;

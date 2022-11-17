@@ -7,7 +7,6 @@ public class Estrazione {
 	public int count;
 	
 	public  Estrazione() {
-		count+=1;
 		this.numeriBingo = new int[90];
 		for (int i = 0; i < 90; i++) {
 			numeriBingo[i] = i+1;
@@ -17,6 +16,13 @@ public class Estrazione {
 	
 	public int getNumeroEstratto() {
 		return numeriBingo[count];
+	}
+	public int getNumeroEstrazioni(){
+		return count;
+	}
+	
+	public void setCount() {
+		this.count+=1;
 	}
 
 	
