@@ -2,25 +2,23 @@ package com.example.stem211.alberto.bingo;
 
 public class Player {
 	private String name;
-	private int numCartelle;
 	private int indiceCartella;
-	private static final int MAX_CARTELLE = 6;
+	private Cartella[] cartelle;
 
-	public Player(String name, int numCar) {
+	public Player(String name, int numCartelle) {
 		this.name = name;
-		this.numCartelle = numCar;
 		Generatore generatore = new Generatore();
-		Cartella[] card = new Cartella[MAX_CARTELLE];
+		this.cartelle = new Cartella[numCartelle];
 		for (int i = 0; i < numCartelle; i++) {
-			card[i] = new Cartella(generatore);
+			cartelle[i] = new Cartella(generatore);
 			this.indiceCartella++;
 		}
 	}
 
-	public boolean checkVittoria() {
+	public boolean checkVittoria(int estrazione) {
 		boolean flag=false;
 		for(int i=0; i<indiceCartella; i++) {
-			
+			flag=this.cartelle[i].checkCinquina(estrazione);
 		}
 		return flag;
 	}
