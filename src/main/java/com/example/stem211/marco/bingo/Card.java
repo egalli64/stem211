@@ -29,6 +29,7 @@ public class Card {
 
 	public int[] totcard() {
 		int count = 0;
+		StringBuilder nCards = new StringBuilder();
 		for (int i = 0; i < numbers.length; i++) {
 			for (int j = 0; j < nCards.length; j++) {
 				int n = nCards.length * count;
