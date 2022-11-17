@@ -18,9 +18,9 @@ public class Vittoria {
 				System.out.println(name + " HAI VINTO!");
 			}
 		}
-		if (win == false) {
-			System.out.println(name + " non ha ancora vinto");
-		}
+//		if (win == false) {
+//			System.out.println(name + " non ha ancora vinto");
+//		}
 	}
 
 	// -----------------GETTER---------------------------------------------
