@@ -3,6 +3,7 @@ package com.example.stem211.martina.bingo;
 public class Game {
 	public static void main(String[] args) {
 		System.out.println("Inizia il gioco!");
+		System.out.println("");
 
 		int numeroGiocatori = args.length / 2;
 		boolean continua=false;
@@ -18,7 +19,9 @@ public class Game {
 
 		}
 		
+		System.out.println("");
 		System.out.println("inizia l'estrazione!");
+		System.out.println("");
 		
 		Estrazione numeroEstratto=new Estrazione();
 		int numeroEst;
@@ -43,18 +46,18 @@ public class Game {
 				gameGiocatori[i].setMyCartella(cartellaGiocatore);
 			
 			}
-			
+			System.out.println("");
 			//verifico se ci sono vincitori
 			for (int i=0; i<numeroGiocatori;i++) {
 				Vittoria vittoria=new Vittoria(gameGiocatori[i].getName(),gameGiocatori[i].getMyCartella());
 				continua=vittoria.getWin();
-				if (continua==true) {
+				if (continua) {
 					System.out.println("ci sono state "+numeroEstratto.getNumeroEstrazioni()+" estrazioni");
 					break;
 				}
 			}
-			
-			
+			System.out.println("");
+				
 		}
 		
 	}

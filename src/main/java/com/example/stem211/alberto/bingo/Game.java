@@ -1,11 +1,11 @@
 package com.example.stem211.alberto.bingo;
 
 public class Game {
-	private static final int MAX_TURNI=90;
-	
+	private static final int MAX_TURNI = 90;
+
 	public static void main(String[] args) {
-		GameRuleChecker check = new GameRuleChecker();
-		boolean flag = check.checkStartGame(args);
+		Game game = new Game();
+		boolean flag = game.checkStartGame(args);
 		if (!flag) {
 			System.out.println(
 					"Please add some players, each followed by the number of their cartelle (maximum of 6 cart for player)");
@@ -19,20 +19,42 @@ public class Game {
 				// System.out.println(players[j].getName());
 			}
 			Banco banco = new Banco();
-			for(int turni=0;turni<MAX_TURNI;turni++) {
+			for (int turni = 0; turni < MAX_TURNI; turni++) {
 				int num = banco.estrazione();
-				boolean vittoria=false;
+				boolean vittoria = false;
 				for (int k = 0; k < players.length; k++) {
-					//vittoria = players[k].checkVittoria();
-					if(vittoria) {
-						System.out.println("Complimenti" + players[k].getName()+"ha vinto!!");
+					vittoria = players[k].checkVittoria(num);
+					if (vittoria) {
+						System.out.println("Complimenti " + players[k].getName() + " ha vinto!!");
+						break;
 					}
 				}
+				if(vittoria) {
+					break;
+				}
 			}
-			
+
 			// System.out.println(num);
 
 		}
 
 	}
+	
+	public boolean checkStartGame(String[] args) {
+		boolean flag = true;
+		if (!(!(args.length < 4) && args.length % 2 == 0)) {
+			flag = false;
+		} else {
+			for (int i = 0; i < args.length; i++) {
+				if(i % 2 != 0) {
+					int x = Integer.valueOf(args[i]);
+					if (x < 0 || x > 6) {
+						flag = false;
+					}
+				}
+			}
+		}
+		return flag;
+	}
+
 }
