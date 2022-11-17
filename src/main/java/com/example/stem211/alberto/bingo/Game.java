@@ -26,27 +26,22 @@ public class Game {
 					vittoria = players[k].checkVittoria(num);
 					if (vittoria) {
 						System.out.println("Complimenti " + players[k].getName() + " ha vinto!!");
-						break;
 					}
 				}
-				if(vittoria) {
+				if (vittoria) {
 					break;
 				}
 			}
-
-			// System.out.println(num);
-
 		}
-
 	}
-	
+
 	public boolean checkStartGame(String[] args) {
 		boolean flag = true;
 		if (!(!(args.length < 4) && args.length % 2 == 0)) {
 			flag = false;
 		} else {
 			for (int i = 0; i < args.length; i++) {
-				if(i % 2 != 0) {
+				if (i % 2 != 0) {
 					int x = Integer.valueOf(args[i]);
 					if (x < 0 || x > 6) {
 						flag = false;

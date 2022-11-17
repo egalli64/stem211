@@ -16,13 +16,13 @@ public class Player {
 	}
 
 	public boolean checkVittoria(int estrazione) {
-		boolean flag=false;
-		for(int i=0; i<indiceCartella; i++) {
-			flag=this.cartelle[i].checkCinquina(estrazione);
+		boolean flag = false;
+		for (int i = 0; i < indiceCartella; i++) {
+			flag = this.cartelle[i].checkCinquina(estrazione);
 		}
 		return flag;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
