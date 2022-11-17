@@ -7,6 +7,7 @@ public class Game {
 		int numeroGiocatori = args.length / 2;
 		boolean continua=false;
 
+		
 		Giocatore[] gameGiocatori = new Giocatore[numeroGiocatori];
 
 		for (int i = 0; i < numeroGiocatori; i++) {
@@ -17,10 +18,13 @@ public class Game {
 		}
 		System.out.println("inizia l'estrazione!");
 		Estrazione numeroEstratto=new Estrazione();
-		int numeroEst=numeroEstratto.getNumeroEstratto();
-		System.out.println("numero estratto: "+  numeroEst); 
+		int numeroEst;
 		
 		while (continua==false) {
+			numeroEstratto.setCount();
+			numeroEst=numeroEstratto.getNumeroEstratto();
+			System.out.println("numero estratto: "+  numeroEst);
+
 
 			for (int i=0;i< numeroGiocatori; i++) {
 				int[] cartellaGiocatore=gameGiocatori[i].getMyCartella();
@@ -33,14 +37,12 @@ public class Game {
 				Vittoria vittoria=new Vittoria(gameGiocatori[i].getName(),gameGiocatori[i].getMyCartella());
 				continua=vittoria.getWin();
 				if (continua==true) {
-					System.out.println("ci sono state "+(numeroEstratto.getNumeroEstrazioni()+1)+" estrazioni");
+					System.out.println("ci sono state "+numeroEstratto.getNumeroEstrazioni()+" estrazioni");
 					break;
 				}
 			}
 			
-			numeroEstratto.setCount();
-			numeroEst=numeroEstratto.getNumeroEstratto();
-			System.out.println("numero estratto: "+  numeroEst);
+			
 		}
 		
 	}
