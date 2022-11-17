@@ -21,7 +21,6 @@ public class Vittoria {
 		if (win == false) {
 			System.out.println(name + " non ha ancora vinto");
 		}
-
 	}
 
 	// -----------------GETTER---------------------------------------------
@@ -39,9 +38,7 @@ public class Vittoria {
 				matrice[i][j] = numeri[5 * i + j];
 			}
 		}
-
 		return matrice;
-
 	}
 
 }
