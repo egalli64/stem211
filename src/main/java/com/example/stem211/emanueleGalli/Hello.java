@@ -1,6 +1,6 @@
 package com.example.stem211.emanueleGalli;
 
-import com.example.stem211.emanuele.*;
+import com.example.stem211.emanuele.HelloManuel;
 
 public class Hello {
     public static void main(String[] args) {
