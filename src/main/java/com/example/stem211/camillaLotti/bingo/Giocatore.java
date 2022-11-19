@@ -33,15 +33,9 @@ public class Giocatore {
 		}
 	}
 
-	public void checkCartelle(int numeroEstratto) {
+	public boolean checkCartelle(int numeroEstratto) {
 		for (int i = 0; i < arrayCartelle.length; i++) {
-			arrayCartelle[i].checkRighe(numeroEstratto);
-		}
-	}
-
-	public boolean checkCinquina() {
-		for (int i = 0; i < arrayCartelle.length; i++) {
-			if (arrayCartelle[i].checkCinquina()) {
+			if (arrayCartelle[i].checkRighe(numeroEstratto)) {
 				return true;
 			}
 		}

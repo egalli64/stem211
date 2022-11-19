@@ -27,12 +27,11 @@ public class Banco {
 		}
 
 		int countEstrazioni = 0;
+		int numeroEstratto;
 		do {
-			int numeroEstratto = estrarreNumero();
-			System.out.println("Numero estratto " + numeroEstratto);
-			checkNumbero(numeroEstratto);
+			numeroEstratto = estrarreNumero();
 			countEstrazioni++;
-		} while (!checkCinquina());
+		} while (!checkNumbero(numeroEstratto));
 		System.out.println("Numero estrazioni: " + countEstrazioni + "/" + Generatore.getNumeroMassimo());
 	}
 
@@ -57,16 +56,9 @@ public class Banco {
 		return numeroEstratto;
 	}
 
-	public void checkNumbero(int numeroEstratto) {
+	public boolean checkNumbero(int numeroEstratto) {
 		for (int i = 0; i < arrayGiocatori.length; i++) {
-			arrayGiocatori[i].checkCartelle(numeroEstratto);
-			System.out.println(arrayGiocatori[i].toString());
-		}
-	}
-
-	public boolean checkCinquina() {
-		for (int i = 0; i < arrayGiocatori.length; i++) {
-			if (arrayGiocatori[i].checkCinquina()) {
+			if (arrayGiocatori[i].checkCartelle(numeroEstratto)) {
 				System.out.println(arrayGiocatori[i].getNome() + " ha vinto");
 				return true;
 			}
