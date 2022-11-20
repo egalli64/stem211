@@ -10,15 +10,19 @@ public class Riga {
 		this.array = array;
 	}
 
-	public void checkSingoliNumeri(int numeroEstratto) {
+	public boolean checkSingoliNumeri(int numeroEstratto) {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == numeroEstratto) {
 				countNumeroTrovato++;
+				if (checkCinquina()) {
+					return true;
+				}
 			}
 		}
+		return false;
 	}
 
-	public boolean checkCinquina() {
+	private boolean checkCinquina() {
 		for (int i = 0; i < array.length; i++) {
 			if (countNumeroTrovato == 5) {
 				return true;

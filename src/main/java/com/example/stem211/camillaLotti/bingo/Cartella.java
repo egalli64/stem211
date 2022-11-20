@@ -26,15 +26,9 @@ public class Cartella {
 		}
 	}
 
-	public void checkRighe(int numeroEstratto) {
+	public boolean checkRighe(int numeroEstratto) {
 		for (int i = 0; i < arrayRighe.length; i++) {
-			arrayRighe[i].checkSingoliNumeri(numeroEstratto);
-		}
-	}
-
-	public boolean checkCinquina() {
-		for (int i = 0; i < arrayRighe.length; i++) {
-			if (arrayRighe[i].checkCinquina()) {
+			if (arrayRighe[i].checkSingoliNumeri(numeroEstratto)) {
 				return true;
 			}
 		}

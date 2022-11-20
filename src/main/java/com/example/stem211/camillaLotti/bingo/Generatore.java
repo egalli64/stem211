@@ -1,6 +1,5 @@
 package com.example.stem211.camillaLotti.bingo;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Generatore {
@@ -8,7 +7,7 @@ public class Generatore {
 	private final static int NUMERO_MASSIMO = 90;
 
 	private Generatore() {
-		this.numeri = new int[NUMERO_MASSIMO];
+		this.numeri = new int[NUMERO_MASSIMO]; // meglio scrivere Generatore.NUMERO_MASSIMO ?
 	}
 	
 	public static Generatore creaGeneratore() {
@@ -32,7 +31,7 @@ public class Generatore {
 			numeri[i] = numeri[j];
 			numeri[j] = temp;
 		}
-		System.out.println(Arrays.toString(numeri));
+//		System.out.println(Arrays.toString(numeri));
 	}
 
 	public int[][] dareNumeriPerNCartelle(int numeroCartelle) {
