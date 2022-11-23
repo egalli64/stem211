@@ -1,12 +1,42 @@
 package com.example.stem211.silviag.bingo;
 
+import com.example.stem211.martina.bingo.Cartella;
+
 public class Giocatore {
-	private Cartella[] cards;
-	
-	public Giocatore(int nCards) {
-		this.cards = new Cartella[nCards];
-		for(int i = 0; i < cards.length;  i++) {
-			cards[i] = new Cartella();
-		}
+
+	// ---------------DATA MEMEBERS----------------------------------
+	private String name;
+	private int numeroCartelle;
+	private int[] myCartella;
+
+	// --------------------CONSTRUCTOR--------------------------------
+	public Giocatore(String name, int numeroCartelle) {
+		this.name = name;
+		this.numeroCartelle = numeroCartelle;
+
+		Cartella myCartella1 = new Cartella(numeroCartelle);
+		myCartella = myCartella1.getNumeriCartella();
+
 	}
+
+	// ------------------GETTER----------------------------------
+	public String getName() {
+		return name;
+	}
+
+	// -----------------------------------------------------------
+	public int getNumeroCartelle() {
+		return numeroCartelle;
+	}
+
+	// ------------------------------------------------------------
+	public int[] getMyCartella() {
+		return myCartella;
+	}
+
+	// ---------------------SETTER-----------------------------------
+	public void setMyCartella(int[] newCartella) {
+		this.myCartella = newCartella;
+	}
+
 }
