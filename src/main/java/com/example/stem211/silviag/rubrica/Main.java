@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Rubrica rubrica = new Rubrica();
-		rubrica.add("Sara", "516515165");
-		rubrica.save();
+//		rubrica.add("Sara", "516515165");
+//		rubrica.save();
 		
 		char command = 'x';
 		try (Scanner scanner = new Scanner(System.in)) {
