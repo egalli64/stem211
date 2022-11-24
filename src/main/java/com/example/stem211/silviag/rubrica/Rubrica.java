@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Rubrica {
-	private static final String FILE_NAME = "rubrica.txt";
+	private static final String FILE_NAME = "/dev/rubrica.txt";
 	private Map<String, String> map;
 
 	public Rubrica() {
