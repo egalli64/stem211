@@ -1,6 +1,8 @@
 package com.example.stem211.camillaLotti.bingo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.Random;
 
 public class Banco {
@@ -30,6 +32,7 @@ public class Banco {
 		int numeroEstratto;
 		do {
 			numeroEstratto = estrarreNumero();
+			System.out.println("NUMERO " + numeroEstratto);
 			countEstrazioni++;
 		} while (!checkNumbero(numeroEstratto));
 		System.out.println("Numero estrazioni: " + countEstrazioni + "/" + Generatore.getNumeroMassimo());
@@ -57,12 +60,20 @@ public class Banco {
 	}
 
 	public boolean checkNumbero(int numeroEstratto) {
-		for (int i = 0; i < arrayGiocatori.length; i++) {
-			if (arrayGiocatori[i].checkCartelle(numeroEstratto)) {
-				System.out.println(arrayGiocatori[i].getNome() + " ha vinto");
-				return true;
-			}
-		}
-		return false;
+		Arrays.stream(arrayGiocatori).forEach(System.out::println);
+		Optional<Giocatore> opt = Arrays.stream(arrayGiocatori).filter(g -> g.checkCartelle(numeroEstratto)).findAny();
+		opt.ifPresent(g -> {
+			System.out.println(g.getNome() + " ha vinto");
+		});
+		return opt.isPresent();
+		
+//		for (int i = 0; i < arrayGiocatori.length; i++) {
+//			System.out.println(arrayGiocatori[i].toString());
+//			if (arrayGiocatori[i].checkCartelle(numeroEstratto)) {
+//				System.out.println(arrayGiocatori[i].getNome() + " ha vinto");
+//				return true;
+//			}
+//		}
+//		return false;
 	}
 }

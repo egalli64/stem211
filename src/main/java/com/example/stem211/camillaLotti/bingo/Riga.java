@@ -1,6 +1,7 @@
 package com.example.stem211.camillaLotti.bingo;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class Riga {
 	private int[] array;
@@ -11,23 +12,21 @@ public class Riga {
 	}
 
 	public boolean checkSingoliNumeri(int numeroEstratto) {
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == numeroEstratto) {
-				countNumeroTrovato++;
-				if (checkCinquina()) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private boolean checkCinquina() {
-		for (int i = 0; i < array.length; i++) {
+		if(IntStream.of(array).filter(s -> s == numeroEstratto).findAny().isPresent()) {
+			countNumeroTrovato++;
 			if (countNumeroTrovato == 5) {
 				return true;
 			}
 		}
+		
+//		for (int i = 0; i < array.length; i++) {
+//			if (array[i] == numeroEstratto) {
+//				countNumeroTrovato++;
+//				if (countNumeroTrovato == 5) {
+//					return true;
+//				}
+//			}
+//		}
 		return false;
 	}
 

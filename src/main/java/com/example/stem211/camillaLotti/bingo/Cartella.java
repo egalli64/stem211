@@ -1,6 +1,7 @@
 package com.example.stem211.camillaLotti.bingo;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Cartella {
 	private Riga[] arrayRighe;
@@ -19,6 +20,7 @@ public class Cartella {
 	}
 
 	public void riempiCartella(int[][] numeri) {
+		
 		for (int i = 0; i < NUMERO_RIGHE; i++) {
 			Arrays.sort(numeri[i]);
 			Riga riga = new Riga(numeri[i]);
@@ -27,12 +29,14 @@ public class Cartella {
 	}
 
 	public boolean checkRighe(int numeroEstratto) {
-		for (int i = 0; i < arrayRighe.length; i++) {
-			if (arrayRighe[i].checkSingoliNumeri(numeroEstratto)) {
-				return true;
-			}
-		}
-		return false;
+		return Arrays.stream(arrayRighe).filter(s -> s.checkSingoliNumeri(numeroEstratto)).findAny().isPresent();
+		
+//		for (int i = 0; i < arrayRighe.length; i++) {
+//			if (arrayRighe[i].checkSingoliNumeri(numeroEstratto)) {
+//				return true;
+//			}
+//		}
+//		return false;
 	}
 
 	public static int getNumeroRighe() {
@@ -51,9 +55,10 @@ public class Cartella {
 	public String toString() {
 		StringBuilder result = new StringBuilder();
 		result.append("\n");
-		for (int i = 0; i < arrayRighe.length; i++) {
-			result.append(arrayRighe[i].toString());
-		}
+		Arrays.stream(arrayRighe).forEach(s -> result.append(s.toString()));
+//		for (int i = 0; i < arrayRighe.length; i++) {
+//			result.append(arrayRighe[i].toString());
+//		}
 		return result.toString();
 	}
 }
